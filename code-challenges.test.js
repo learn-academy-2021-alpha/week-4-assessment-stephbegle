@@ -1,5 +1,7 @@
 // ASSESSMENT 4: JavaScript Coding Practical Questions with Jest
 
+// const { isMainThread } = require("worker_threads")
+
 // Please read all questions thoroughly
 // Pseudo coding is HIGHLY recommended
 // If you get stuck, please leave comments to help us understand your thought process
@@ -23,12 +25,51 @@ var colors1 = ["purple", "blue", "green", "yellow", "pink"]
 var colors2 = ["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saffron"]
 // Expected output example (can be a different order): ["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]
 
+describe("When cutAndShuffle is called on an array,", () => {
+    
+    it("returns an array with the first item removed and shuffles the remainder of the array.", () => {
 
+        const colors1 = ["purple", "blue", "green", "yellow", "pink"];
+
+        actResult = cutAndShuffle(colors1);
+
+        expect(actResult).toEqual(["yellow", "blue", "pink", "green"]);
+    })
+
+    it("returns an array with the first item removed and shuffles the remainder of the array.", () => {
+
+        const colors2 = ["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saffron"];
+
+        actResult = cutAndShuffle(colors2);
+
+        expect(actResult).toEqual(["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]);
+    })
+
+})
 
 
 
 // b) Create the function that makes the test pass.
 
+const cutAndShuffle = (array) => {
+
+    array.shift()
+
+    for (let i = array.length - 1; i > 0; i--){
+
+        let random = Math.floor(Math.random() * (i + 1));
+        // create a random number and call it 'random'
+        let temp = array[i]
+        // loop through and store the current value into the 'temp' variable for later
+        array[i] = array[random]
+        // replace the current value with the random value's index
+        array[random] = temp
+        // replace the index that the random value came from, with the temp value (which was the current value)
+    }
+    return array
+}
+
+console.log(cutAndShuffle(colors1))
 
 
 
@@ -42,13 +83,45 @@ var cubeAndSum1 = [2, 3, 4]
 var cubeAndSum2 = [0, 5, 10]
 // Expected output: 1125
 
+describe("When cubeThenSum is called on an array,", () => {
 
+    it("returns the sum of all the numbers cubed", () => {
 
+        const cubeAndSum1 = [2, 3, 4];
+
+        actResult = cutAndShuffle(cubeAndSum1);
+
+        expect(actResult).toEqual(99);
+    })
+
+    it("returns the sum of all the numbers cubed", () => {
+
+        const cubeAndSum1 = [0, 5, 10];
+
+        actResult = cutAndShuffle(cubeAndSum1);
+
+        expect(actResult).toEqual(1125);
+    })
+
+})
 
 
 // b) Create the function that makes the test pass.
 
+const cubeThenSum = (array) => {
 
+    let cubedArr = array.map(value => {
+        let cubed = value ** 3
+        return cubed
+    })
+    // loop through the array and cube all the elements in it
+
+    return cubedArr.reduce((a,b) => a + b, 0)
+    // sum up all of the elements in the array 
+    // reduces the array to one single value with the given function of adding all the numbers from left to right
+}
+console.log(cubeThenSum(cubeAndSum1))
+console.log(cubeThenSum(cubeAndSum2))
 
 
 
@@ -61,13 +134,47 @@ var nums1 = [3, 56, 90, -8, 0, 23, 6]
 var nums2 = [109, 5, 9, -59, 8, 24]
 // Expected output: [-59, 109]
 
+describe("When minAndMax is called on an array,", () => {
 
+    it("returns an array of the minimum and maximum numbers in that order.", () => {
+
+        const nums1 = [3, 56, 90, -8, 0, 23, 6];
+
+        actResult = cutAndShuffle(nums1);
+
+        expect(actResult).toEqual([-8, 90]);
+    })
+
+    it("returns an array of the minimum and maximum numbers in that order.", () => {
+
+        const nums2 = [109, 5, 9, -59, 8, 24];
+
+        actResult = cutAndShuffle(nums2);
+
+        expect(actResult).toEqual([-59, 109]);
+    })
+
+})
 
 
 
 // b) Create the function that makes the test pass.
 
+const minAndMax = (array) => {
+    
+    let newArr = [];
+    
+    newArr.push(Math.min.apply(Math, array));
+    // push the smallest number into newArr
 
+    newArr.push(Math.max.apply(Math, array));
+    // then push the largest number into newArr
+
+    return newArr
+}
+
+console.log(minAndMax(nums1))
+console.log(minAndMax(nums2))
 
 
 
