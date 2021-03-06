@@ -97,3 +97,18 @@ var testString1 = "albatross"
 var testString2 = "jabberwocky"
 // Expected output: "jAbBeRwOcKy"
 
+const capitalize = (string) => {
+
+    let splitString = string.split("")
+
+    return splitString.map((value, index) => {
+        if (index % 2 !== 0){
+            return value.toUpperCase()
+        } else {
+            return value
+        }
+    }).join("")
+}
+
+console.log(capitalize(testString1))
+console.log(capitalize(testString2))

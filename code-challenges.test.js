@@ -26,7 +26,7 @@ var colors2 = ["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saf
 // Expected output example (can be a different order): ["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]
 
 describe("When cutAndShuffle is called on an array,", () => {
-    
+
     it("returns an array with the first item removed and shuffles the remainder of the array.", () => {
 
         const colors1 = ["purple", "blue", "green", "yellow", "pink"];
@@ -89,7 +89,7 @@ describe("When cubeThenSum is called on an array,", () => {
 
         const cubeAndSum1 = [2, 3, 4];
 
-        actResult = cutAndShuffle(cubeAndSum1);
+        actResult = cubeThenSum(cubeAndSum1);
 
         expect(actResult).toEqual(99);
     })
@@ -98,7 +98,7 @@ describe("When cubeThenSum is called on an array,", () => {
 
         const cubeAndSum1 = [0, 5, 10];
 
-        actResult = cutAndShuffle(cubeAndSum1);
+        actResult = cubeThenSum(cubeAndSum1);
 
         expect(actResult).toEqual(1125);
     })
@@ -140,7 +140,7 @@ describe("When minAndMax is called on an array,", () => {
 
         const nums1 = [3, 56, 90, -8, 0, 23, 6];
 
-        actResult = cutAndShuffle(nums1);
+        actResult = minAndMax(nums1);
 
         expect(actResult).toEqual([-8, 90]);
     })
@@ -149,7 +149,7 @@ describe("When minAndMax is called on an array,", () => {
 
         const nums2 = [109, 5, 9, -59, 8, 24];
 
-        actResult = cutAndShuffle(nums2);
+        actResult = minAndMax(nums2);
 
         expect(actResult).toEqual([-59, 109]);
     })
@@ -188,12 +188,47 @@ var testString2 = "jabberwocky"
 // Expected output: "jAbBeRwOcKy"
 
 
+describe("When capitalize is called on an array,", () => {
+
+    it("returns a string with every other letter capitalized.", () => {
+
+        const testString1 = "albatross";
+
+        actResult = capitalize(testString1);
+
+        expect(actResult).toEqual("aLbAtRoSs");
+    })
+
+    it("returns a string with every other letter capitalized.", () => {
+
+        const testString2 = "jabberwocky";
+
+        actResult = capitalize(testString2);
+
+        expect(actResult).toEqual("jAbBeRwOcKy");
+    })
+
+})
 
 
 
 // b) Create the function that makes the test pass.
 
+const capitalize = (string) => {
 
+    let splitString = string.split("")
+
+    return splitString.map((value, index) => {
+        if (index % 2 !== 0){
+            return value.toUpperCase()
+        } else {
+            return value
+        }
+    }).join("")
+}
+
+console.log(capitalize(testString1))
+console.log(capitalize(testString2))
 
 
 
