@@ -20,56 +20,57 @@
 
 // a) Create a test with an expect statement using the variable provided.
 
-var colors1 = ["purple", "blue", "green", "yellow", "pink"]
-// Expected output example (can be a different order): ["yellow", "blue", "pink", "green"]
-var colors2 = ["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saffron"]
-// Expected output example (can be a different order): ["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]
+// var colors1 = ["purple", "blue", "green", "yellow", "pink"]
+// // Expected output example (can be a different order): ["yellow", "blue", "pink", "green"]
+// var colors2 = ["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saffron"]
+// // Expected output example (can be a different order): ["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]
 
-describe("When cutAndShuffle is called on an array,", () => {
+// describe("When cutAndShuffle is called on an array,", () => {
 
-    it("returns an array with the first item removed and shuffles the remainder of the array.", () => {
+//     it("returns an array with the first item removed and shuffles the remainder of the array.", () => {
 
-        const colors1 = ["purple", "blue", "green", "yellow", "pink"];
+//         const colors1 = ["purple", "blue", "green", "yellow", "pink"];
 
-        actResult = cutAndShuffle(colors1);
+//         actResult = cutAndShuffle(colors1);
 
-        expect(actResult).toEqual(["yellow", "blue", "pink", "green"]);
-    })
+//         expect(actResult).toEqual(["yellow", "blue", "pink", "green"]);
+//     })
 
-    it("returns an array with the first item removed and shuffles the remainder of the array.", () => {
+//     it("returns an array with the first item removed and shuffles the remainder of the array.", () => {
 
-        const colors2 = ["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saffron"];
+//         const colors2 = ["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saffron"];
 
-        actResult = cutAndShuffle(colors2);
+//         actResult = cutAndShuffle(colors2);
 
-        expect(actResult).toEqual(["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]);
-    })
+//         expect(actResult).toEqual(["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]);
+//     })
 
-})
+// })
 
 
 
-// b) Create the function that makes the test pass.
+// // b) Create the function that makes the test pass.
 
-const cutAndShuffle = (array) => {
+// const cutAndShuffle = (array) => {
 
-    array.shift()
+//     array.shift()
 
-    for (let i = array.length - 1; i > 0; i--){
+//     for (let i = array.length - 1; i > 0; i--){
 
-        let random = Math.floor(Math.random() * (i + 1));
-        // create a random number and call it 'random'
-        let temp = array[i]
-        // loop through and store the current value into the 'temp' variable for later
-        array[i] = array[random]
-        // replace the current value with the random value's index
-        array[random] = temp
-        // replace the index that the random value came from, with the temp value (which was the current value)
-    }
-    return array
-}
+//         let random = Math.floor(Math.random() * (i + 1));
+//         // create a random number and call it 'random'
+//         let temp = array[i]
+//         // loop through and store the current value into the 'temp' variable for later
+//         array[i] = array[random]
+//         // replace the current value with the random value's index
+//         array[random] = temp
+//         // replace the index that the random value came from, with the temp value (which was the current value)
+//     }
+//     return array
+// }
 
-console.log(cutAndShuffle(colors1))
+// console.log(cutAndShuffle(colors1))
+// console.log(cutAndShuffle(colors2))
 
 
 
@@ -219,11 +220,13 @@ const capitalize = (string) => {
     let splitString = string.split("")
 
     return splitString.map((value, index) => {
+
         if (index % 2 !== 0){
             return value.toUpperCase()
         } else {
             return value
         }
+
     }).join("")
 }
 
