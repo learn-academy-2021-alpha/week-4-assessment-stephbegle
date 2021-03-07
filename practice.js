@@ -92,10 +92,10 @@
 
 // // a) Create a test with expect statements for each of the variables provided.
 
-// var testString1 = "albatross"
-// // Expected output: "aLbAtRoSs"
-// var testString2 = "jabberwocky"
-// // Expected output: "jAbBeRwOcKy"
+var testString1 = "albatross"
+// Expected output: "aLbAtRoSs"
+var testString2 = "jabberwocky"
+// Expected output: "jAbBeRwOcKy"
 
 // const capitalize = (string) => {
 
@@ -122,47 +122,31 @@ var testArray1 = [3, 7, 10, 5, 4, 3, 3]
 var testArray2 = [7, 8, 2, 3, 1, 5, 4]
 // Expected output: [3, 7, 10, 5, 4, 8, 2, 1]
 
-// const noDuplicates = (array1, array2) => {
 
-//     let unique = [];
-//     let repeats = [];
-
-//     for(i = 0; i <= array1.length; i++){
-//         unique.push(i)
-//         if(unique.includes(i)){
-//             repeats.push(i)
-//         } else {
-//             unique.push(i)
-//         }
-//     }
-
-//     for(i = 0; i <= array2.length; i++){
-//         unique.push(i)
-//         if(unique.includes(i)){
-//             repeats.push(i)
-//         } else {
-//             unique.push(i)
-//         }
-//     }
-//     return repeats
-
-// }
-
-const noDuplicates = (array1, array2) => {
+const noDuplicates = (...array) => {
 
     let unique = [];
     let repeats = [];
 
-    array1.forEach(value => {
-        unique.push(value)
+    array.forEach(value => {
+        
         if(unique.includes(value)){
             repeats.push(value)
         } else {
             unique.push(value)
         }
     })
-    return unique
+
+    // array2.forEach(value => {
+        
+    //     if(unique.includes(value)){
+    //         repeats.push(value)
+    //     } else {
+    //         unique.push(value)
+    //     }
+    // })
+
+    return " this is the unique array: " + unique + " ...should be one array."
 }
 
 console.log(noDuplicates(testArray1, testArray2))
-// this ain't doing what I'm expecting it to do :(
