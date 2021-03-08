@@ -19,6 +19,7 @@ def odds_ascend array
 end
 
 p odds_ascend fullArr1
+p odds_ascend fullArr2
 
 
 
@@ -28,7 +29,7 @@ beverages_array = ['coffee', 'tea', 'juice', 'water', 'soda water']
 letter_o = 'o'
 # Expected output: ['coffee', 'soda water']
 letter_a = 'a'
-# Expected output: ['tea', 'soda water']
+# Expected output: ['tea', 'water', 'soda water']
 
 def contain_letter array, letter
 
