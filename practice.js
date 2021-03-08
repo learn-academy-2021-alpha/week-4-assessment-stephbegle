@@ -137,16 +137,7 @@ const noDuplicates = (...array) => {
         }
     })
 
-    // array2.forEach(value => {
-        
-    //     if(unique.includes(value)){
-    //         repeats.push(value)
-    //     } else {
-    //         unique.push(value)
-    //     }
-    // })
-
-    return " this is the unique array: " + unique + " ...should be one array."
+    return unique
 }
 
 console.log(noDuplicates(testArray1, testArray2))

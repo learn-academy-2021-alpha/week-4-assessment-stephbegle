@@ -15,7 +15,7 @@ def odds_ascend array
             value
         end
     end
-
+    numArr.sort
 end
 
 p odds_ascend fullArr1
@@ -105,7 +105,7 @@ p trek.get_info
 # Expected output example: my_bike.pedal_faster 10 => 10
 # Expected output example: my_bike.brake 15 => 0
 
-
+p "Current speed starts at zero"
 p trek.current_speed
 p "Speed up 5 mph: "
 p trek.pedal_faster 5
