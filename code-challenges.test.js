@@ -25,51 +25,53 @@
 // var colors2 = ["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saffron"]
 // // Expected output example (can be a different order): ["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]
 
-// describe("When cutAndShuffle is called on an array,", () => {
+describe("When cutAndShuffle is called on an array,", () => {
 
-//     it("returns an array with the first item removed and shuffles the remainder of the array.", () => {
+    it("returns an array with the first item removed and shuffles the remainder of the array.", () => {
 
-//         const colors1 = ["purple", "blue", "green", "yellow", "pink"];
+        const colors1 = ["purple", "blue", "green", "yellow", "pink"];
 
-//         actResult = cutAndShuffle(colors1);
+        const actResult = cutAndShuffle(colors1);
 
-//         expect(actResult).toEqual(["yellow", "blue", "pink", "green"]);
-//     })
+        const expectResult = ["yellow", "blue", "pink", "green"]
 
-//     it("returns an array with the first item removed and shuffles the remainder of the array.", () => {
+        expect(actResult).toEqual(expect.arrayContaining(expectResult));
+    })
 
-//         const colors2 = ["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saffron"];
+    it("returns an array with the first item removed and shuffles the remainder of the array.", () => {
 
-//         actResult = cutAndShuffle(colors2);
+        const colors2 = ["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saffron"];
 
-//         expect(actResult).toEqual(["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]);
-//     })
+        actResult = cutAndShuffle(colors2);
 
-// })
+        expect(actResult).toEqual(["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]);
+    })
+
+})
 
 
 // // b) Create the function that makes the test pass.
 
-// const cutAndShuffle = (array) => {
+const cutAndShuffle = (array) => {
 
-//     array.shift()
+    array.shift()
 
-//     for (let i = array.length - 1; i > 0; i--){
+    for (let i = array.length - 1; i > 0; i--){
 
-//         let random = Math.floor(Math.random() * (i + 1));
-//         // create a random number and call it 'random'
-//         let temp = array[i]
-//         // loop through and store the current value into the 'temp' variable for later
-//         array[i] = array[random]
-//         // replace the current value with the random value's index
-//         array[random] = temp
-//         // replace the index that the random value came from, with the temp value (which was the current value)
-//     }
-//     return array
-// }
+        let random = Math.floor(Math.random() * (i + 1));
+        // create a random number and call it 'random'
+        let temp = array[i]
+        // loop through and store the current value into the 'temp' variable for later
+        array[i] = array[random]
+        // replace the current value with the random value's index
+        array[random] = temp
+        // replace the index that the random value came from, with the temp value (which was the current value)
+    }
+    return array
+}
 
-// console.log(cutAndShuffle(colors1))
-// console.log(cutAndShuffle(colors2))
+console.log(cutAndShuffle(colors1))
+console.log(cutAndShuffle(colors2))
 
 
 // --------------------2) Create a function that takes in an array of numbers and returns the sum of all the numbers cubed.
@@ -246,7 +248,7 @@ describe("When noDuplicates is called on an a given number of arrays,", () => {
 
         const testArray2 = [7, 8, 2, 3, 1, 5, 4]
 
-        actResult = capitalize(testArray1, testArray2);
+        actResult = noDuplicates(testArray1, testArray2);
 
         expect(actResult).toEqual([3, 7, 10, 5, 4, 8, 2, 1]);
     })
