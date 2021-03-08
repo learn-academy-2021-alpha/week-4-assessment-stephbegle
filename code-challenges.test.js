@@ -31,9 +31,9 @@ describe("When cutAndShuffle is called on an array,", () => {
 
         const colors1 = ["purple", "blue", "green", "yellow", "pink"];
 
-        const actResult = cutAndShuffle(colors1);
+        const actResult = cutAndShuffle(colors1).sort((a,b) => a - b);
 
-        const expectResult = ["yellow", "blue", "pink", "green"]
+        const expectResult = ["yellow", "blue", "pink", "green"].sort((a,b) => a - b);
 
         expect(actResult).toEqual(expect.arrayContaining(expectResult));
     })
