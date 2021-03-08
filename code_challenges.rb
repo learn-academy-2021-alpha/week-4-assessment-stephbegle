@@ -21,6 +21,20 @@ end
 p odds_ascend fullArr1
 p odds_ascend fullArr2
 
+# Deven's way of solving
+def nums_only arr
+    arr.select {|x| x.is_a?(Integer)}.sort.delete_if &:even?
+end
+
+# Elyse's way of solving
+def nums arr
+    odd_array = arr.select do |val| 
+    if val.class == Integer
+        val.odd?
+    end
+    odd_array.sort
+end
+
 
 
 # --------------------2) Create a method that takes in an array of words and a letter and returns all the words that contain that particular letter.
@@ -38,7 +52,6 @@ def contain_letter array, letter
             x
         end
     end
-
 end
 
 p contain_letter beverages_array, letter_o
@@ -120,3 +133,31 @@ p "Break 10: "
 p trek.break 10
 p "Your current speed after the break: "
 p trek.current_speed
+
+# Nick's version of doing the initialize method
+# class Bike_two
+
+#     def initialize model, wheels=2, current_speed=0
+#         @model = model
+#         @wheels = wheels
+#         @current_speed = current_speed
+#     end
+    
+#     def get_info
+#         "The #@model bike has #@wheels wheels and is going #@current_speed mph."
+#     end
+
+#     def pedal_faster acc
+#         @current_speed = @current_speed + acc
+#     end
+
+#     def break br
+#         if @current_speed > 0
+#             @current_speed = @current_speed - br
+#         end
+#     end
+    
+# end
+
+# trek = Bike_two.new "Trek"
+# p trek.get_info

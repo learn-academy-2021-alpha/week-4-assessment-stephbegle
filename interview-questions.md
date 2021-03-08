@@ -88,7 +88,7 @@ https://www.freecodecamp.org/news/object-oriented-programming-concepts-21bb035f7
 
   https://blogs.mulesoft.com/learn-apis/api-led-connectivity/what-are-apis-how-do-apis-work/
 
-- CRUD - create, read, update, delete. These are the four basic operations of persistent storage. 
+- CRUD - create, read, update, delete. These are the four basic operations of persistent storage. All in reference to data.
 
   https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
 
@@ -101,5 +101,7 @@ https://www.freecodecamp.org/news/object-oriented-programming-concepts-21bb035f7
   https://medium.com/@hidace/an-overview-of-object-relational-mapping-3255fa26d51f
 
 - Active Record - considered an architectural pattern for storing in-memory object data in relational databases. The interface of an object conforming to this pattern would include functions such as Insert, Update, and Delete, polus properties that correspond more or less directly to the columns in the underlying database table. It is the M in the MVC, which is the layer of the system responsible for representing business data and logic. 
+
+Chunk of code in Ruby that is the ORM. 
 
   https://guides.rubyonrails.org/active_record_basics.html

@@ -166,6 +166,21 @@ const minAndMax = (array) => {
 
     return newArr
 }
+// this is looping through the array twice
+
+// way that Justin did this one was sorting the array and getting the zeroith index and the last inddex 
+const sortRemove = (array) => {
+
+    array.sort(function(a,b){
+        return (a - b);
+    });
+
+    return [array[0], array[-1]] // or array[array.length -1] to get the index of the last element
+}
+// versus this is looping through the array once
+// for this one you could also use .shift() and .pop() but that's depending on if you want to mutate the existing array or not. 
+
+
 
 console.log(minAndMax(nums1))
 console.log(minAndMax(nums2))
@@ -270,24 +285,24 @@ console.log(noDuplicates(testArray1, testArray2))
 
 
 // STRETCH
-// thought I had it, but is not doing the expected behavior
+// this is the way Lex did his
+const noDupes = (...array) => {
 
-// const noDupes = (...array) => {
+    let fullArr = [].concat(...array);
+    // concat all the arguments into one big array
 
-//     let unique = [];
-//     let repeats = [];
+    let unique = fullArr.filter((num, index) => {
+        return fullArr.indexOf(num) === index
+    })
 
-//     array.forEach(value => {
-        
-//         if(unique.includes(value)){
-//             repeats.push(value)
-//         } else {
-//             unique.push(value)
-//         }
-//     })
+    return unique
+}
 
-//     return unique
-// }
+console.log(noDupes(testArray1, testArray2))
 
-// console.log(noDupes(testArray1, testArray2))
 
+// this was Nick's way of doingt his problem
+const noDoubles = (...array) => {
+    return [...new Set([].concat(...array))]
+}
+// set retreives all of the unique elements in an array and returns them

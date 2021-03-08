@@ -145,21 +145,46 @@ const noDuplicates = (array1, array2) => {
 console.log(noDuplicates(testArray1, testArray2))
 
 // STRETCH using the spread operator
-const noDuplicates = (...array) => {
+// const noDuplicates = (...array) => {
 
-    let unique = [];
-    let repeats = [];
+//     let unique = [];
+//     let repeats = [];
 
-    array.forEach(value => {
+//     array.forEach(value => {
         
-        if(unique.includes(value)){
-            repeats.push(value)
-        } else {
-            unique.push(value)
-        }
+//         if(unique.includes(value)){
+//             repeats.push(value)
+//         } else {
+//             unique.push(value)
+//         }
+//     })
+
+//     return unique
+// }
+
+// console.log(noDuplicates(testArray1, testArray2))
+
+// this is the way Lex did his
+const noDupes = (...array) => {
+
+    let fullArr = [].concat(...array);
+    // concat all the arguments into one big array
+
+    let unique = fullArr.filter((num, index) => {
+        return fullArr.indexOf(num) === index
     })
 
     return unique
 }
+console.log("LEX's way: ")
+console.log(noDupes(testArray1, testArray2))
 
-console.log(noDuplicates(testArray1, testArray2))
+
+// this was Nick's way of doingt his problem
+const noDoubles = (...array) => {
+    return [...new Set([].concat(...array))]
+}
+// set retreives all of the unique elements in an array and returns them
+
+console.log("NICKS's way: ")
+console.log(noDoubles(testArray1, testArray2))
