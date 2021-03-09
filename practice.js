@@ -1,21 +1,3 @@
-// ASSESSMENT 4: JavaScript Coding Practical Questions with Jest
-
-// const { isMainThread } = require("worker_threads")
-
-// Please read all questions thoroughly
-// Pseudo coding is HIGHLY recommended
-// If you get stuck, please leave comments to help us understand your thought process
-
-// Add appropriate dependencies to the repository:
-// $ yarn add jest
-
-// Use test driven development to complete the following questions
-// Run the file with the following command:
-// $ yarn jest
-
-// Reminder: The test will call your function
-
-
 // --------------------1) Create a function that takes in an array, removes the first item from the array and shuffles the remaining content.
 
 // a) Create a test with an expect statement using the variable provided.
@@ -25,30 +7,9 @@ var colors1 = ["purple", "blue", "green", "yellow", "pink"]
 var colors2 = ["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saffron"]
 // Expected output example (can be a different order): ["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]
 
-describe("When cutAndShuffle is called on an array,", () => {
-
-    it("returns an array with the first item removed and shuffles the remainder of the array.", () => {
-
-        const colors1 = ["purple", "blue", "green", "yellow", "pink"];
-
-        const actResult = cutAndShuffle(colors1);
-
-        expect(actResult).toEqual(expect.arrayContaining(["yellow", "blue", "pink", "green"]));
-    })
-
-    it("returns an array with the first item removed and shuffles the remainder of the array.", () => {
-
-        const colors2 = ["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saffron"];
-
-        const actResult = cutAndShuffle(colors2);
-
-        expect(actResult).toEqual(expect.arrayContaining(["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]));
-    })
-
-})
-
-
-// b) Create the function that makes the test pass.
+// loop throgh the array 
+// take out the first element in each array with shift
+// then randomize the array 
 
 const cutAndShuffle = (array) => {
 
@@ -71,7 +32,6 @@ const cutAndShuffle = (array) => {
 console.log(cutAndShuffle(colors1))
 console.log(cutAndShuffle(colors2))
 
-
 // --------------------2) Create a function that takes in an array of numbers and returns the sum of all the numbers cubed.
 
 // a) Create a test with expect statements for each of the variables provided.
@@ -81,29 +41,8 @@ var cubeAndSum1 = [2, 3, 4]
 var cubeAndSum2 = [0, 5, 10]
 // Expected output: 1125
 
-describe("When cubeThenSum is called on an array,", () => {
-
-    it("returns the sum of all the numbers in it after each of them are cubed.", () => {
-
-        const cubeAndSum1 = [2, 3, 4];
-
-        actResult = cubeThenSum(cubeAndSum1);
-
-        expect(actResult).toEqual(99);
-    })
-
-    it("returns the sum of all the numbers in it after each of them are cubed.", () => {
-        
-        const cubeAndSum1 = [0, 5, 10];
-        
-        actResult = cubeThenSum(cubeAndSum1);
-        
-        expect(actResult).toEqual(1125);
-    })
-
-})
-
-// b) Create the function that makes the test pass.
+// cube each number with a loop
+// sum them up
 
 const cubeThenSum = (array) => {
 
@@ -130,63 +69,28 @@ var nums1 = [3, 56, 90, -8, 0, 23, 6]
 var nums2 = [109, 5, 9, -59, 8, 24]
 // Expected output: [-59, 109]
 
-describe("When minAndMax is called on an array,", () => {
-
-    it("returns an array of the minimum and maximum numbers in that order.", () => {
-
-        const nums1 = [3, 56, 90, -8, 0, 23, 6];
-
-        actResult = minAndMax(nums1);
-
-        expect(actResult).toEqual([-8, 90]);
-    })
-
-    it("returns an array of the minimum and maximum numbers in that order.", () => {
-
-        const nums2 = [109, 5, 9, -59, 8, 24];
-
-        actResult = minAndMax(nums2);
-
-        expect(actResult).toEqual([-59, 109]);
-
-    })
-})
-
-// b) Create the function that makes the test pass.
+// find the smallest number with math min  method
+// put it in a new array
+// find the max number with a math max method
+// put it in the new array
+// return the new array
 
 const minAndMax = (array) => {
-
+    
     let newArr = [];
-
+    
     newArr.push(Math.min.apply(Math, array));
-    // push the smallest number into newArr
 
     newArr.push(Math.max.apply(Math, array));
-    // then push the largest number into newArr
 
     return newArr
 }
-// this is looping through the array twice
-
-// way that Justin did this one was sorting the array and getting the zeroith index and the last inddex 
-const sortRemove = (array) => {
-
-    array.sort(function(a,b){
-        return (a - b);
-    });
-
-    return [array[0], array[-1]] // or array[array.length -1] to get the index of the last element
-}
-// versus this is looping through the array once
-// for this one you could also use .shift() and .pop() but that's depending on if you want to mutate the existing array or not. 
-
-
 
 console.log(minAndMax(nums1))
 console.log(minAndMax(nums2))
 
-
 // --------------------4) Create a function that takes in a string and returns a string with every other letter capitalized.
+
 // a) Create a test with expect statements for each of the variables provided.
 
 var testString1 = "albatross"
@@ -194,47 +98,22 @@ var testString1 = "albatross"
 var testString2 = "jabberwocky"
 // Expected output: "jAbBeRwOcKy"
 
-describe("When capitalize is called on an array,", () => {
-
-    it("returns a string with every other letter capitalized.", () => {
-
-        const testString1 = "albatross";
-        
-        actResult = capitalize(testString1);
-        
-        expect(actResult).toEqual("aLbAtRoSs");
-
-    })
-
-    it("returns a string with every other letter capitalized.", () => {
-
-        const testString2 = "jabberwocky";
-
-        actResult = capitalize(testString2);
-
-        expect(actResult).toEqual("jAbBeRwOcKy");
-
-    })
-
-})
-
-// b) Create the function that makes the test pass.
-
 const capitalize = (string) => {
 
-    let splitString = string.split("");
+    let splitString = string.split("")
 
     return splitString.map((value, index) => {
-  
-        return index % 2 !== 0 ? value.toUpperCase() : value
-        // as per Deven's request to try this format 
-
+        if (index % 2 !== 0){
+            return value.toUpperCase()
+        } else {
+            return value
+        }
     }).join("")
-
 }
 
 console.log(capitalize(testString1))
 console.log(capitalize(testString2))
+
 
 // --------------------5) Create a function that takes in two arrays as arguments and returns one array with no duplicate values. STRETCH: Use the spread operator to pass in a dynamic number of arguments.
 
@@ -243,24 +122,6 @@ console.log(capitalize(testString2))
 var testArray1 = [3, 7, 10, 5, 4, 3, 3]
 var testArray2 = [7, 8, 2, 3, 1, 5, 4]
 // Expected output: [3, 7, 10, 5, 4, 8, 2, 1]
-
-describe("When noDuplicates is called on an a given number of arrays,", () => {
-
-    it("returns one array with no duplicate values.", () => {
-
-        const testArray1 = [3, 7, 10, 5, 4, 3, 3];
-
-        const testArray2 = [7, 8, 2, 3, 1, 5, 4];
-
-        actResult = noDuplicates(testArray1, testArray2);
-
-        expect(actResult).toEqual([3, 7, 10, 5, 4, 8, 2, 1]);
-
-    })
-
-})
-
-// b) Create the function that makes the test pass.
 
 const noDuplicates = (array1, array2) => {
     let unique = [];
@@ -283,8 +144,26 @@ const noDuplicates = (array1, array2) => {
 }
 console.log(noDuplicates(testArray1, testArray2))
 
+// STRETCH using the spread operator
+// const noDuplicates = (...array) => {
 
-// STRETCH
+//     let unique = [];
+//     let repeats = [];
+
+//     array.forEach(value => {
+        
+//         if(unique.includes(value)){
+//             repeats.push(value)
+//         } else {
+//             unique.push(value)
+//         }
+//     })
+
+//     return unique
+// }
+
+// console.log(noDuplicates(testArray1, testArray2))
+
 // this is the way Lex did his
 const noDupes = (...array) => {
 
@@ -297,7 +176,7 @@ const noDupes = (...array) => {
 
     return unique
 }
-
+console.log("LEX's way: ")
 console.log(noDupes(testArray1, testArray2))
 
 
@@ -306,3 +185,6 @@ const noDoubles = (...array) => {
     return [...new Set([].concat(...array))]
 }
 // set retreives all of the unique elements in an array and returns them
+
+console.log("NICKS's way: ")
+console.log(noDoubles(testArray1, testArray2))
